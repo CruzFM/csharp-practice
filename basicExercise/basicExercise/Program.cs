@@ -12,7 +12,9 @@ namespace basicExercise
         {
             //Exercise1();
             //Exercise2();
-            Exercise3();
+            //Exercise3();
+            //Exercise4();
+            Exercise5();
         }
 
         static void Exercise1()
@@ -82,6 +84,35 @@ namespace basicExercise
                     Console.WriteLine(i);
                 }
             }
+            Console.ReadLine();
+        }
+
+        static void Exercise4()
+        {
+            Console.Write("Enter a word: ");
+            string word = Console.ReadLine().ToLower();
+            string newWord = "";
+            for (int i=word.Length - 1; i >= 0; i--)
+            {
+                newWord += word[i];
+            }
+            bool isEqualString = String.Compare( word, newWord ) == 0;
+            Console.WriteLine($"Is palindrome? {isEqualString}");
+            Console.ReadLine();
+        }
+
+        static void Exercise5()
+        {
+            Console.Write("Enter a number: ");
+            int enteredNumber = Convert.ToInt32(Console.ReadLine());
+            int numberSqroot = (int)Math.Sqrt(enteredNumber);
+            int divisors = 0;
+            for (int i = enteredNumber; i >= numberSqroot; i--)
+            {
+                int result = enteredNumber % i;
+                if (result == 0) divisors += 1;
+            }
+            Console.WriteLine($"Is it prime? {divisors < 2}");
             Console.ReadLine();
         }
     }
