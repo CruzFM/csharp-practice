@@ -14,7 +14,8 @@ namespace basicExercise
             //Exercise2();
             //Exercise3();
             //Exercise4();
-            Exercise5();
+            //Exercise5();
+            Exercise6();
         }
 
         static void Exercise1()
@@ -114,6 +115,27 @@ namespace basicExercise
             }
             Console.WriteLine($"Is it prime? {divisors < 2}");
             Console.ReadLine();
+        }
+
+        static void Exercise6()
+        {
+            Console.Write("Enter numbers separated by spaces: ");
+            string numbers = Console.ReadLine();
+            string[] splitted = numbers.Split(' ');
+            for (int i = 0; i < splitted.Length /2; i++)
+            {
+                string temp = splitted[i];
+                splitted[i] = splitted[(splitted.Length - 1) - i];
+                splitted[(splitted.Length - 1) - i] = temp;
+
+            }
+            Console.Write("Asi queda la lista: ");
+            foreach(string s in splitted)
+            {
+                Console.WriteLine(s);
+            }
+            Console.ReadLine();
+
         }
     }
 }
