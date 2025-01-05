@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace basicExercise
@@ -15,7 +16,8 @@ namespace basicExercise
             //Exercise3();
             //Exercise4();
             //Exercise5();
-            Exercise6();
+            //Exercise6();
+            Exercise7();
         }
 
         static void Exercise1()
@@ -136,6 +138,32 @@ namespace basicExercise
             }
             Console.ReadLine();
 
+        }
+
+        static void Exercise7() 
+        {
+            Console.Write("Enter a sentence: ");
+            string phrase = Console.ReadLine().ToLower().Trim();
+            phrase = Regex.Replace(phrase, @"[^\w\s]", "");
+            string[] splitted = phrase.Split(' ');
+            Dictionary<string, int> wordCounts = new Dictionary<string, int>();
+
+
+            for(int i=0; i<splitted.Length; i++)
+            {
+                if ( wordCounts.ContainsKey(splitted[i]) ){
+                    wordCounts[splitted[i]]++;
+                } else
+                {
+                    wordCounts.Add(splitted[i], 1);
+                }
+            }
+
+            foreach(var pair in wordCounts)
+            {
+                Console.WriteLine($"Key: {pair.Key}, Value: {pair.Value}");
+            }
+            Console.ReadLine();
         }
     }
 }
